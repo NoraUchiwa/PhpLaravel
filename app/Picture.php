@@ -11,9 +11,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pictures extends Model
+class Picture extends Model
 {
-    function users(){
+    function user(){
         return $this->belongsTo(User::class);
     }
 }

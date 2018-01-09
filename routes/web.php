@@ -11,13 +11,18 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
-Route::get("/",'FrontController@index');
+//@index permet de connecter le controller
 
-//Il faut mettre la variable entre {}
-Route::get("hello/{name}", function($name){
-    return "Hello " . $name;
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get("/",'FrontController@index');
+    Route::get('dashboard', 'DashboardController@index');
+    Route::resource('spending', 'SpendingController');
+    Route::resource('user', 'UserController');
+    Route::resource('balance', 'BalanceController');
 });

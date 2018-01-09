@@ -1,9 +1,13 @@
-var supp = document.getElementById("delete");
 
+if($('form').height() > 0){
 
-supp.addEventListener("click", function(){
-   var confirmer = confirm("Voulez-vous vraiment supprimer ?");
-   if(confirmer){
+    var selector = 'form';
 
-   }
-})
+    $(selector).submit(function() {
+        var r = confirm("Confirm ?");
+        if (r === false) {
+            return false;
+        }
+    });
+
+}

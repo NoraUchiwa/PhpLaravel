@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use View;
+use App\Spending;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        View::composer('partials.menus.main', function($view){
+
+            // $total?? 'no total'
+            $view->with('montant', Spending::sum('price')); //variable montant dans laquelle se trouve la valeur de spending
+
+        });
     }
 
     /**

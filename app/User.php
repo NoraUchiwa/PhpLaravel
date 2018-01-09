@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->hasOne(Part::class);
     }
 
+    function picture(){
+        //Fais la liaison avec la classe Part
+        return $this->hasOne(Picture::class);
+    }
+
     function balance(){
         return $this->hasOne(Balance::class);
     }

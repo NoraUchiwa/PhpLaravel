@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-
 @include('partials.menus.main')
 @include('partials.flash')
 @yield('content')
